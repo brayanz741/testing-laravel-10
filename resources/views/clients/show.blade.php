@@ -1,5 +1,5 @@
 @extends('layouts.plantilla')
-@section('title', 'Cursos - ' . $curso)
+@section('title', 'Clientes - ' . $client)
 @section('content')
-    <h1>Se esta mostrando el curso: {{ $curso }}</h1>
+    <h1>Se esta mostrando el cliente: {{ $client }}</h1>
 @endsection
