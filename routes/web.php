@@ -19,7 +19,7 @@ Route::get('/', HomeController::class);
 
 // Cursos
 Route::controller(ClientController::class)->prefix('clients')->group(function () {
-    Route::get('/', 'index');
-    Route::get('/create', 'create');
-    Route::get('/{client}', 'show');
+    Route::get('/', 'index')->name('clients.index');
+    Route::get('/create', 'create')->name('clients.create');
+    Route::get('/{id}', 'show')->name('clients.show');
 });
