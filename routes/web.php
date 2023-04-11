@@ -18,8 +18,8 @@ use App\Http\Controllers\CursoController;
 Route::get('/', HomeController::class);
 
 // Cursos
-Route::controller(CursoController::class)->prefix('cursos')->group(function () {
+Route::controller(ClientController::class)->prefix('clients')->group(function () {
     Route::get('/', 'index');
     Route::get('/create', 'create');
-    Route::get('/{curso}', 'show');
+    Route::get('/{client}', 'show');
 });
