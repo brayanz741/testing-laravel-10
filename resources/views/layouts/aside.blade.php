@@ -3,14 +3,21 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-        <li class="nav-item">
-            <a class="nav-link " href="index.html">
-                <i class="bi bi-grid"></i>
-                <span>Dashboard</span>
+        <li class="nav-item nav-home">
+            <a class="nav-link " href="{{ route('home') }}">
+                <i class="ri-home-heart-fill"></i>
+                <span>Inicio</span>
             </a>
-        </li><!-- End Dashboard Nav -->
+        </li><!-- End Home Nav -->
 
-        <li class="nav-item">
+        <li class="nav-item nav-clients-index">
+            <a class="nav-link collapsed" href="{{ route('clients.index') }}">
+                <i class="bi bi-person"></i>
+                <span>Clientes</span>
+            </a>
+        </li><!-- End Clients Page Nav -->
+
+        {{-- <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -230,7 +237,7 @@
                 <i class="bi bi-file-earmark"></i>
                 <span>Blank</span>
             </a>
-        </li><!-- End Blank Page Nav -->
+        </li><!-- End Blank Page Nav --> --}}
 
     </ul>
 

@@ -2,7 +2,8 @@
 @extends('layouts.footer')
 @extends('layouts.aside')
 @extends('layouts.header')
-{{-- @section('title', 'Clientes') --}}
+
+@section('title', 'Clientes')
 
 
 

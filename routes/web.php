@@ -15,7 +15,7 @@ use App\Http\Controllers\ClientController;
 |
 */
 
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
 // Cursos
 Route::controller(ClientController::class)->prefix('clients')->group(function () {
