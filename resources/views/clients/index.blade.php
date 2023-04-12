@@ -1,6 +1,13 @@
-@extends('layouts.plantilla')
-@section('title', 'Clientes')
-@section('content')
+@extends('layouts.head')
+@extends('layouts.footer')
+@extends('layouts.aside')
+@extends('layouts.header')
+{{-- @section('title', 'Clientes') --}}
+
+
+
+
+{{-- @section('content')
     <h1>Listado de Clientes </h1>
     <a href="{{ route('clients.create') }}">Crear Cliente</a>
     <ul>
@@ -11,4 +18,4 @@
         @endforeach
     </ul>
     {{ $clients->links() }}
-@endsection
+@endsection --}}

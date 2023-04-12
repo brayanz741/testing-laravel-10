@@ -11,6 +11,7 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::paginate();
+        // return view('layouts.template');
         return view('clients.index', compact('clients'));
     }
     //Create función para mostrar formularios de creación (una convención)
