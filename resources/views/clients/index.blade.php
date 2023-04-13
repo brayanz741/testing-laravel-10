@@ -1,17 +1,22 @@
 @extends('layouts.head')
 @extends('layouts.footer')
 @extends('layouts.aside')
-@extends('layouts.tables')
+@extends('layouts.components.tables')
 @extends('layouts.header')
+@section('title', 'Clientes - Listado')
 
-@section('title', 'Clientes')
-@section('page-title', 'Listado de Clientes')
+@section('tables-title')
+    <h1>Listado de Clientes
+        <a href="{{ route('clients.create') }}" class="btn btn-primary">
+            <i class="bx bx-plus-circle"></i> Crear Cliente
+        </a>
+    </h1>
+@endsection
 @section('breadcrumbs')
     <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="{{ route('clients.index') }}">Listado de Clientes</a></li>
+    <li class="breadcrumb-item">Listado de Clientes</li>
 @endsection
-@section('card-title', 'Listado')
-@section('table-filters')
+@section('tables-filters')
     <h5 class="card-title">Filtros para busqueda</h5>
 
     <!-- Floating Labels Form -->
@@ -32,7 +37,7 @@
         </div>
     </form><!-- End floating Labels Form -->
 @endsection
-@section('table')
+@section('tables-content')
     <h5 class="card-title">Listado de Clientes</h5>
 
     <table class="table table-striped table-bordered">
@@ -78,16 +83,3 @@
         element.classList.remove('collapsed')
     };
 </script>
-
-{{-- @section('content')
-    <h1>Listado de Clientes </h1>
-    <a href="{{ route('clients.create') }}">Crear Cliente</a>
-    <ul>
-        @foreach ($clients as $client)
-            <li>
-                <a href="{{ route('clients.show', $client->id) }}">{{ $client->name }}</a>
-            </li>
-        @endforeach
-    </ul>
-    {{ $clients->links() }}
-@endsection --}}
