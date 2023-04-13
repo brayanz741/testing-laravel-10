@@ -1226,7 +1226,7 @@ h6 {
   color: #012970;
 }
 
-.footer .credits {
+.footer .credits,.login-credits {
   padding-top: 2px;
   text-align: center;
   font-size: 9px;

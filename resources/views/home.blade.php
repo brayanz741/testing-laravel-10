@@ -78,7 +78,7 @@
                                             <div class="invalid-feedback">Contraseña incorrecta, intente nuevamente
                                             </div>
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-12 pb-4">
                                             <button class="btn btn-primary w-100" type="submit">Ingresar</button>
                                         </div>
                                     </form>
