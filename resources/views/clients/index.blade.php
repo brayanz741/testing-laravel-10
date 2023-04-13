@@ -11,7 +11,30 @@
     <li class="breadcrumb-item"><a href="{{ route('clients.index') }}">Listado de Clientes</a></li>
 @endsection
 @section('card-title', 'Listado')
+@section('table-filters')
+    <h5 class="card-title">Filtros para busqueda</h5>
+
+    <!-- Floating Labels Form -->
+    <form class="row g-3">
+        <div class="col-md-4">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="name">
+        </div>
+        <div class="col-md-4">
+            <label for="phone" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" id="phone">
+        </div>
+        <div class="col-md-4 ">
+            <div class="d-flex justify-content-around w-100 position-relative top-45-percent">
+                <button type="submit" class="btn btn-primary">Buscar datos</button>
+                <button type="reset" class="btn btn-secondary">Limpiar datos</button>
+            </div>
+        </div>
+    </form><!-- End floating Labels Form -->
+@endsection
 @section('table')
+    <h5 class="card-title">Listado de Clientes</h5>
+
     <table class="table table-striped table-bordered">
         <thead>
             <tr>

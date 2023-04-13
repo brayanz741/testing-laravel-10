@@ -15,8 +15,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">@yield('card-title')</h5>
-
+                        @yield('table-filters')
                         @yield('table')
                     </div>
                 </div>
