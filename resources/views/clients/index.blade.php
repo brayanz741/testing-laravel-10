@@ -58,10 +58,12 @@
                     <td>{{ $client->address }}</td>
                     <td>{{ $client->phone }}</td>
                     <td class="text-center">
+                        <a href="{{ route('clients.edit', $client) }}"class="btn btn-info" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" data-bs-original-title="Editar"><i
+                                class="bi  bi-pencil-square "></i></a>
+
                         <button type="button" class="btn btn-danger"data-bs-toggle="tooltip" data-bs-placement="bottom"
                             data-bs-original-title="Eliminar"><i class="bi bi-trash"></i></button>
-                        <button type="button" class="btn btn-info" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                            data-bs-original-title="Editar"><i class="bi  bi-pencil-square "></i></button>
                     </td>
                 </tr>
             @endforeach

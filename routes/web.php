@@ -22,4 +22,5 @@ Route::controller(ClientController::class)->prefix('clients')->group(function ()
     Route::get('/', 'index')->name('clients.index');
     Route::get('/create', 'create')->name('clients.create');
     Route::get('/{id}', 'show')->name('clients.show');
+    Route::get('/{client}/edit', 'edit')->name('clients.edit');
 });

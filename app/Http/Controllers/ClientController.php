@@ -20,9 +20,13 @@ class ClientController extends Controller
         return view('clients.create');
     }
     // funcion para mostrar la información basado en un criterio (una convención)
-    public function show($id)
+    public function show(Client $client)
     {
-        $client = Client::find($id);
         return view('clients.show', compact('client'));
+    }
+
+    public function edit(Client $client)
+    {
+        return view('clients.edit', compact('client'));
     }
 }
