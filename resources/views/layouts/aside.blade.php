@@ -11,7 +11,7 @@
         </li><!-- End Home Nav -->
 
         <li class="nav-item nav-clients-index">
-            <a class="nav-link collapsed" href="{{ route('clients.index') }}">
+            <a class="nav-link" href="{{ route('clients.index') }}">
                 <i class="bi bi-person"></i>
                 <span>Clientes</span>
             </a>

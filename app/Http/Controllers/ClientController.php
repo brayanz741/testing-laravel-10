@@ -10,7 +10,7 @@ class ClientController extends Controller
     //Index función para mostrar pagina principal (una convención)
     public function index()
     {
-        $clients = Client::paginate();
+        $clients = Client::paginate(10);
         // return view('layouts.template');
         return view('clients.index', compact('clients'));
     }
