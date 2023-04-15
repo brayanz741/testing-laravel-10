@@ -17,7 +17,7 @@ use App\Http\Controllers\ClientController;
 
 Route::get('/', HomeController::class)->name('home');
 
-// Cursos
+// Clients
 Route::controller(ClientController::class)->prefix('clients')->group(function () {
     Route::get('/', 'index')->name('clients.index');
     Route::get('/create', 'create')->name('clients.create');
