@@ -21,7 +21,7 @@ class ClientFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'document_type_id' => $this->faker->randomElement([1, 2, 3]),
-            'rut' => $this->faker->randomNumber(8, true),
+            'document' => $this->faker->randomNumber(8, true),
             'check_digit' => $this->faker->randomElement(['1', '5', '9', 'k']),
             'address' => $this->faker->address(),
             'phone' => $this->faker->e164PhoneNumber()

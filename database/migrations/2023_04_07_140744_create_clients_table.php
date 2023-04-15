@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100);
             $table->integer('document_type_id');
-            $table->integer('rut');
+            $table->integer('document');
             $table->string('check_digit', 1)->nullable();
             $table->text('address')->nullable();
             $table->string('phone', 20)->nullable();

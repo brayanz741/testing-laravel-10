@@ -17,10 +17,12 @@ use App\Http\Controllers\ClientController;
 
 Route::get('/', HomeController::class)->name('home');
 
-// Clients
+// clients/
 Route::controller(ClientController::class)->prefix('clients')->group(function () {
     Route::get('/', 'index')->name('clients.index');
     Route::get('/create', 'create')->name('clients.create');
-    Route::get('/{id}', 'show')->name('clients.show');
+    Route::post('/', 'store')->name('clients.store');
+    Route::get('/{client}', 'show')->name('clients.show');
     Route::get('/{client}/edit', 'edit')->name('clients.edit');
+    Route::put('/{client}', 'update')->name('clients.update');
 });
