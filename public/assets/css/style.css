@@ -1241,6 +1241,6 @@ th{
     text-align: center;
 }
 
-
-
-
+.invalid-feedback {
+    font-size: .7em;
+}

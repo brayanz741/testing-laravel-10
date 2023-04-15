@@ -27,8 +27,14 @@
                                 @csrf
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" name="name">
+                                        <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                            id="name" name="name">
                                         <label for="name">Nombre</label>
+                                        @error('name')
+                                            <div class="invalid-feedback">
+                                                *{{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-4">
