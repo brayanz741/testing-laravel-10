@@ -24,6 +24,7 @@ class ClientController extends Controller
 
         $request->validate([
             'name' => 'required|max:100',
+            // TODO: Usar la relación de la tabla documento como validador
             'document_type_id' => 'required|max:1|integer',
             'document' => 'required|max:30',
             'check_digit' => 'required|max:1',

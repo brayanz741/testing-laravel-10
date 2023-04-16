@@ -28,7 +28,7 @@
                                 <div class="col-md-12">
                                     <div class="form-floating">
                                         <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                            id="name" name="name">
+                                            id="name" name="name" value="{{ @old('name') }}">
                                         <label for="name">Nombre</label>
                                         @error('name')
                                             <div class="invalid-feedback">
@@ -39,40 +39,68 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-floating mb-3">
-                                        <select class="form-select" id="document_type_id" name="document_type_id"
-                                            aria-label="State">
-                                            <option value="1"> Documento Nacional de Identidad </option>
-                                            <option value="2"> Carné de Extranjería</option>
-                                            <option value="3"> Pasaporte</option>
+                                        {{-- TODO: traer los datos desde la base de datos --}}
+                                        <select class="form-select @error('document_type_id') is-invalid @enderror"
+                                            id="document_type_id" name="document_type_id" aria-label="State">
+                                            <option value="1" @selected(1 == old('document_type_id'))> Documento Nacional de
+                                                Identidad </option>
+                                            <option value="2" @selected(2 == old('document_type_id'))> Carné de Extranjería
+                                            </option>
+                                            <option value="3" @selected(3 == old('document_type_id'))> Pasaporte</option>
                                         </select>
                                         <label for="document_type_id">Tipo de Documento</label>
+                                        @error('document_type_id')
+                                            <div class="invalid-feedback">
+                                                *{{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="col-md-12">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="document" name="document">
+                                            <input type="text"
+                                                class="form-control @error('document') is-invalid @enderror" id="document"
+                                                name="document" value="{{ @old('document') }}">
                                             <label for="document">Numero de documento</label>
+                                            @error('document')
+                                                <div class="invalid-feedback">
+                                                    *{{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="col-md-12">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="check_digit" name="check_digit">
+                                            <input type="text"
+                                                class="form-control @error('check_digit') is-invalid @enderror"
+                                                id="check_digit" name="check_digit" value="{{ @old('check_digit') }}">
                                             <label for="check_digit">Digito Verificador</label>
+                                            @error('check_digit')
+                                                <div class="invalid-feedback">
+                                                    *{{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="phone" name="phone">
+                                        <input type="text" class="form-control @error('phone') is-invalid @enderror"
+                                            id="phone" name="phone" value="{{ @old('phone') }}">
                                         <label for="phone">Teléfono</label>
+                                        @error('phone')
+                                            <div class="invalid-feedback">
+                                                *{{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control" id="address" name="address" style="height: 100px;"></textarea>
+                                        <textarea class="form-control" id="address" name="address" style="height: 100px;"> {{ @old('address') }}</textarea>
                                         <label for="address">Address</label>
                                     </div>
                                 </div>
