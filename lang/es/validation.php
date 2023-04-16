@@ -148,7 +148,11 @@ return [
 
     'attributes' => [
         'name' => 'nombre',
-
+        'document_type_id' => 'tipo de documento',
+        'document' => 'número de documento',
+        'check_digit' => 'digito verficador',
+        'phone' => 'teléfono',
+        'address' => 'dirección'
     ],
 
 ];

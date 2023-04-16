@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('check_digit', 1)->nullable();
             $table->text('address')->nullable();
             $table->string('phone', 20)->nullable();
-            $table->boolean('status')->default(true);
+            $table->integer('status')->default(1)->comment('Relación la tabla status con el campo id');
             $table->timestamps();
         });
     }

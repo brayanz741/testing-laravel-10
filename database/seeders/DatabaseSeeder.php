@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Client::factory(100)->create();
+        $this->call(DocumentTypeSeeder::class);
+        $this->call(StatusSeeder::class);
     }
 }

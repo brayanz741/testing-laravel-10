@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\DocumentType;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ClientController extends Controller
 {
@@ -11,12 +13,13 @@ class ClientController extends Controller
     {
         $clients = Client::orderBy('id', 'desc')->paginate(10);
         // return view('layouts.template');
-        return view('clients.index', compact('clients'));
+        return view('clients.index')->with(compact('clients'));
     }
 
     public function create()
     {
-        return view('clients.create');
+        $document_types = DocumentType::all('id', 'acronym', 'status')->where('status', 1);
+        return view('clients.create')->with(compact('document_types'));
     }
 
     public function store(Request $request)
@@ -25,7 +28,7 @@ class ClientController extends Controller
         $request->validate([
             'name' => 'required|max:100',
             // TODO: Usar la relación de la tabla documento como validador
-            'document_type_id' => 'required|max:1|integer',
+            'document_type_id' => ['required', 'integer', Rule::in(DocumentType::all('id')->pluck('id'))],
             'document' => 'required|max:30',
             'check_digit' => 'required|max:1',
             'phone' => 'required|max:20',
@@ -50,7 +53,8 @@ class ClientController extends Controller
 
     public function edit(Client $client)
     {
-        return view('clients.edit', compact('client'));
+        $document_types = DocumentType::all('id', 'acronym', 'status')->where('status', 1);
+        return view('clients.edit')->with(compact('client'))->with(compact('document_types'));
     }
 
     public function update(Request $request, Client $client)

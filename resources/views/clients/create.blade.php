@@ -42,11 +42,11 @@
                                         {{-- TODO: traer los datos desde la base de datos --}}
                                         <select class="form-select @error('document_type_id') is-invalid @enderror"
                                             id="document_type_id" name="document_type_id" aria-label="State">
-                                            <option value="1" @selected(1 == old('document_type_id'))> Documento Nacional de
-                                                Identidad </option>
-                                            <option value="2" @selected(2 == old('document_type_id'))> Carné de Extranjería
-                                            </option>
-                                            <option value="3" @selected(3 == old('document_type_id'))> Pasaporte</option>
+                                            <option></option>
+                                            @foreach ($document_types as $document_type)
+                                                <option value="{{ $document_type->id }}" @selected($document_type->id == old('document_type_id'))>
+                                                    {{ $document_type->acronym }}</option>
+                                            @endforeach
                                         </select>
                                         <label for="document_type_id">Tipo de Documento</label>
                                         @error('document_type_id')
@@ -62,7 +62,7 @@
                                             <input type="text"
                                                 class="form-control @error('document') is-invalid @enderror" id="document"
                                                 name="document" value="{{ @old('document') }}">
-                                            <label for="document">Numero de documento</label>
+                                            <label for="document">Número de documento</label>
                                             @error('document')
                                                 <div class="invalid-feedback">
                                                     *{{ $message }}
@@ -101,7 +101,7 @@
                                 <div class="col-12">
                                     <div class="form-floating">
                                         <textarea class="form-control" id="address" name="address" style="height: 100px;"> {{ @old('address') }}</textarea>
-                                        <label for="address">Address</label>
+                                        <label for="address">Dirección</label>
                                     </div>
                                 </div>
                                 <div class="text-center">
