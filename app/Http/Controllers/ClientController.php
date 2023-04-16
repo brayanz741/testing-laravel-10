@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+// Modelos
 use App\Models\Client;
 use App\Models\DocumentType;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+
+//Form Request
+use App\Http\Requests\StoreClient;
 
 class ClientController extends Controller
 {
@@ -22,27 +25,9 @@ class ClientController extends Controller
         return view('clients.create')->with(compact('document_types'));
     }
 
-    public function store(Request $request)
+    public function store(StoreClient $request)
     {
-
-        $request->validate([
-            'name' => 'required|max:100',
-            // TODO: Usar la relación de la tabla documento como validador
-            'document_type_id' => ['required', 'integer', Rule::in(DocumentType::all('id')->pluck('id'))],
-            'document' => 'required|max:30',
-            'check_digit' => 'required|max:1',
-            'phone' => 'required|max:20',
-        ]);
-
-        $client = new Client();
-        $client->name = $request->name;
-        $client->document_type_id = $request->document_type_id;
-        $client->document = $request->document;
-        $client->check_digit = $request->check_digit;
-        $client->phone = $request->phone;
-        $client->address = $request->address;
-
-        $client->save();
+        Client::create($request->all());
         return redirect()->route('clients.index');
     }
 
@@ -59,14 +44,7 @@ class ClientController extends Controller
 
     public function update(Request $request, Client $client)
     {
-        $client->name = $request->name;
-        $client->document_type_id = $request->document_type_id;
-        $client->document = $request->document;
-        $client->check_digit = $request->check_digit;
-        $client->phone = $request->phone;
-        $client->address = $request->address;
-
-        $client->save();
+        $client->update($request->all());
         return redirect()->route('clients.index');
     }
 }
